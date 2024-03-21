@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Mosaddek Hossen",
+    "role": "Web Developer",
+    "image": "https://avatars.githubusercontent.com/u/138000438?v=4",
+    "skills": ["Frontend", "Backend"],
+    "socialLinks": [
+      {
+        "icon": "bg-red-600",
+        "url": "https://www.linkedin.com"
+      },
+      {
+        "icon": "bg-light-blue-400",
+        "url": "https://www.twitter.com"
+      },
+      {
+        "icon": "bg-blue-gray-700",
+        "url": "https://www.linkedin.com"
+      }
+    ]
+  },
+  {
+    "name": "Alexa Smith",
+    "role": "UI/UX Designer",
+    "image": "https://docs.material-tailwind.com/img/team-3.jpg",
+    "skills": ["UI Design", "UX Design"],
+    "socialLinks": [
+      {
+        "icon": "bg-red-600",
+        "url": "https://www.linkedin.com"
+      },
+      {
+        "icon": "bg-light-blue-400",
+        "url": "https://www.twitter.com"
+      },
+      {
+        "icon": "bg-blue-gray-700",
+        "url": "https://www.linkedin.com"
+      }
+    ]
+  },
+  {
+    "name": "John Doe",
+    "role": "Front-end Developer",
+    "image": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "socialLinks": [
+      {
+        "icon": "bg-red-600",
+        "url": "https://www.facebook.com"
+      },
+      {
+        "icon": "bg-light-blue-400",
+        "url": "https://www.twitter.com"
+      },
+      {
+        "icon": "bg-blue-gray-700",
+        "url": "https://www.linkedin.com"
+      }
+    ]
+  },
+  {
+    "name": "Emily Johnson",
+    "role": "Backend Developer",
+    "image": "https://plus.unsplash.com/premium_photo-1664536392896-cd1743f9c02c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    "skills": ["Node.js", "Express", "MongoDB"],
+    "socialLinks": [
+      {
+        "icon": "bg-red-600",
+        "url": "https://www.facebook.com"
+      },
+      {
+        "icon": "bg-light-blue-400",
+        "url": "https://www.twitter.com"
+      },
+      {
+        "icon": "bg-blue-gray-700",
+        "url": "https://www.linkedin.com"
+      }
+    ]
+  },
+  {
+    "name": "Chris Taylor",
+    "role": "Graphic Designer",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    "skills": ["Adobe Photoshop", "Illustrator", "InDesign"],
+    "socialLinks": [
+      {
+        "icon": "bg-red-600",
+        "url": "https://www.facebook.com"
+      },
+      {
+        "icon": "bg-light-blue-400",
+        "url": "https://www.twitter.com"
+      },
+      {
+        "icon": "bg-blue-gray-700",
+        "url": "https://www.linkedin.com"
+      }
+    ]
+  }
+]

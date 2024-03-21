@@ -1,0 +1,96 @@
+[
+  {
+    "_id": "65cc89dcc28a849ea29f9315",
+    "name": "Md Rifadul Islam",
+    "email": "admin@gmail.com",
+    "imageSrc": "https://i.ibb.co/wMCxKp8/Whats-App-Image-2023-07-14-at-7-51-26-PM.jpg",
+    "address": "Chawliapotty",
+    "status": true,
+    "position": "Admin",
+    "password": "63447365",
+    "createdAt": "2024-02-14T09:37:32.356Z",
+    "updatedAt": "2024-02-16T15:11:34.821Z",
+    "accounts": [
+      {
+        "_id": "65cfc689374f3d8c2e6989d2",
+        "name": "Md Rifadul Islam",
+        "accountId": "admi7813",
+        "accountType": "Saving",
+        "balance": 1500,
+        "status": "pending",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-16T20:33:13.325Z",
+        "updatedAt": "2024-02-16T20:33:13.325Z",
+        "__v": 0
+      },
+      {
+        "_id": "65cfc72c374f3d8c2e6989ef",
+        "name": "Md Rifadul Islam",
+        "accountId": "admi7585",
+        "accountType": "Checking",
+        "balance": 5000,
+        "status": "pending",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-16T20:35:56.921Z",
+        "updatedAt": "2024-02-16T20:35:56.921Z",
+        "__v": 0
+      },
+      {
+        "_id": "65cfc8e6198e76acfbc98060",
+        "name": "Md Rifadul Islam",
+        "accountId": "admi9935",
+        "accountType": "Money Market",
+        "balance": 22500,
+        "status": "pending",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-16T20:43:18.260Z",
+        "updatedAt": "2024-02-16T20:43:18.260Z",
+        "__v": 0
+      }
+    ],
+
+    "creditCard": [
+      {
+        "_id": "65d11cf34ec75bf65bf06349",
+        "cardType": "MasterCard",
+        "cvv": "7643",
+        "creditLimit": 5000,
+        "availableCredit": 5000,
+        "cardStatus": "Active",
+        "cardNumber": "4966078490025061",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-17T20:54:11.703Z",
+        "updatedAt": "2024-02-17T20:54:11.703Z",
+        "__v": 0
+      },
+      {
+        "_id": "65d11cfa4ec75bf65bf0634b",
+        "cardType": "Visa",
+        "cvv": "7643",
+        "creditLimit": 5000,
+        "availableCredit": 5000,
+        "cardStatus": "Active",
+        "cardNumber": "5931566812339862",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-17T20:54:18.995Z",
+        "updatedAt": "2024-02-17T20:54:18.995Z",
+        "__v": 0
+      },
+      {
+        "_id": "65d11cff4ec75bf65bf0634d",
+        "cardType": "American Express",
+        "cvv": "7643",
+        "creditLimit": 5000,
+        "availableCredit": 5000,
+        "cardStatus": "Active",
+        "cardNumber": "375816640208274",
+        "userId": "65cc89dcc28a849ea29f9315",
+        "createdAt": "2024-02-17T20:54:23.347Z",
+        "updatedAt": "2024-02-17T20:54:23.347Z",
+        "__v": 0
+      }
+    ],
+
+    "__v": 0
+  }
+]

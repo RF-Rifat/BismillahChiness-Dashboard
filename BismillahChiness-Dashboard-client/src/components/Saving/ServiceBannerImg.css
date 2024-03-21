@@ -1,0 +1,19 @@
+/* ServiceBannerImg.css */
+
+.service-banner-img {
+  position: relative;
+  text-align: center;
+}
+
+.banner-header,
+.banner-para {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.banner-header.active,
+.banner-para.active {
+  opacity: 1;
+  transform: translateY(0);
+}

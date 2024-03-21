@@ -1,0 +1,40 @@
+{
+  "hash": "869ade80",
+  "configHash": "851884cc",
+  "lockfileHash": "15441e35",
+  "browserHash": "e0b0315c",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "da9db790",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "b7f52c03",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "6daec522",
+      "needsInterop": false
+    },
+    "@material-tailwind/react": {
+      "src": "../../node_modules/@material-tailwind/react/index.js",
+      "file": "@material-tailwind_react.js",
+      "fileHash": "719c92a8",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-KJUJBIHA": {
+      "file": "chunk-KJUJBIHA.js"
+    },
+    "chunk-W4VDMLRG": {
+      "file": "chunk-W4VDMLRG.js"
+    }
+  }
+}

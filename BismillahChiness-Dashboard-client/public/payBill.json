@@ -1,0 +1,39 @@
+{
+  "bills": [
+    {
+      "id": 1,
+      "date": "13 march, 2022",
+      "type": "Electricity Bill",
+      "icon": "MdGasMeter",
+      "description": "Pay your electricity bills from the comfort of your home"
+    },
+    {
+      "id": 2,
+      "date": "14 march, 2022",
+      "type": "Gas Bill",
+      "icon": "FcElectricity",
+      "description": "Pay your gas bill easily, whenever needed"
+    },
+    {
+      "id": 3,
+      "date": "15 march, 2022",
+      "type": "Telephone Bill",
+      "icon": "BsFillTelephoneFill",
+      "description": "No more standing in queues or worrying about documents."
+    },
+    {
+      "id": 4,
+      "date": "15 march, 2022",
+      "type": "Land Fee",
+      "icon": "GiIsland",
+      "description": "Wherever you are, pay land development tax and e-mutation fees"
+    },
+    {
+      "id": 5,
+      "date": "15 march, 2022",
+      "type": "Water Bill",
+      "icon": "FaHandHoldingWater",
+      "description": "Pay water bills anytime with the SecureSavings website effortlessly."
+    }
+  ]
+}
