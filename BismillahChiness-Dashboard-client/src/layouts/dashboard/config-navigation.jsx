@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import SvgColor from 'src/components/svg-color';
 
 const icon = (name) => (
