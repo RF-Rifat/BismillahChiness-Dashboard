@@ -38,9 +38,9 @@ export default function Nav({ openNav, onCloseNav }) {
   const renderAccount = (
     <Box
       sx={{
-        my: 3,
+        my: 4,
         mx: 2.5,
-        py: 2,
+        py: 3,
         px: 2.5,
         display: 'flex',
         borderRadius: 1.5,
@@ -76,6 +76,7 @@ export default function Nav({ openNav, onCloseNav }) {
           height: 1,
           display: 'flex',
           flexDirection: 'column',
+          backgroundColor: '#f0ffff',
         },
       }}
     >
