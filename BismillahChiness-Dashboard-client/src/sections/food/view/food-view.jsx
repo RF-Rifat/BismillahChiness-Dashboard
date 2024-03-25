@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -12,7 +13,7 @@ import PostCard from '../post-card';
 import PostSort from '../post-sort';
 import PostSearch from '../post-search';
 
-export default function BlogView() {
+export default function FoodView() {
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>

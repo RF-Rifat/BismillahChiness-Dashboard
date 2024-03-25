@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import { Helmet } from 'react-helmet-async';
 
-import { BlogView } from 'src/sections/blog/view';
+import { FoodView } from 'src/sections/food/view';
 
 export default function FoodPage() {
   return (
@@ -9,8 +9,7 @@ export default function FoodPage() {
       <Helmet>
         <title> Blog | Bismillah-Chiness </title>
       </Helmet>
-
-      <BlogView />
+      <FoodView />
     </>
   );
 }

@@ -4,24 +4,35 @@ import { forwardRef } from 'react';
 
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
 import { RouterLink } from 'src/routes/components';
 
 const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
-
   const logo = (
     <Box
       ref={ref}
       component="div"
       sx={{
-        width: 40,
-        height: 40,
-        display: 'inline-flex',
+        width: 50,
+        height: 50,
+        display: 'flex',
+        justifyContent: 'space-between',
         ...sx,
       }}
       {...other}
     >
       <img src="/favicon/logo.png" alt="logo" />
+      <Typography
+        variant="h4"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginLeft: '10px',
+        }}
+      >
+        Bismillah
+      </Typography>
     </Box>
   );
 
