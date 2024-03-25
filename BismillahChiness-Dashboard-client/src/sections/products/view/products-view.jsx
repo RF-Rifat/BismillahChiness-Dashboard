@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useState } from 'react';
 
 import Stack from '@mui/material/Stack';
@@ -25,7 +26,7 @@ export default function ProductsView() {
   return (
     <Container>
       <Typography variant="h4" sx={{ mb: 5 }}>
-        Products
+        Food Items
       </Typography>
 
       <Stack

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useState } from 'react';
 
 import Menu from '@mui/material/Menu';
