@@ -33,7 +33,7 @@ export default function PostCard({ post, index }) {
         WebkitLineClamp: 2,
         display: '-webkit-box',
         WebkitBoxOrient: 'vertical',
-        ...(latestPostLarge && { typography: 'h5', height: 60, }),
+        ...(latestPostLarge && { typography: 'h5', height: 60 }),
         ...((latestPostLarge || latestPost) && {
           color: 'common.white',
         }),
@@ -58,16 +58,15 @@ export default function PostCard({ post, index }) {
         direction="row"
         sx={{
           ...((latestPostLarge || latestPost) && {
-            
             color: 'common.white',
           }),
         }}
       >
         <Stack direction="row" spacing={2}>
-          <Button variant="contained" startIcon={<DeleteIcon />}>
+          <Button variant="contained" size="small" startIcon={<DeleteIcon />}>
             Delete
           </Button>
-          <Button variant="contained" startIcon={<BorderColorIcon />}>
+          <Button variant="contained" size="small" startIcon={<BorderColorIcon />}>
             Update
           </Button>
         </Stack>
@@ -98,7 +97,6 @@ export default function PostCard({ post, index }) {
         mb: 2,
         color: 'text.disabled',
         ...((latestPostLarge || latestPost) && {
-          opacity: 0.48,
           color: 'common.white',
         }),
       }}

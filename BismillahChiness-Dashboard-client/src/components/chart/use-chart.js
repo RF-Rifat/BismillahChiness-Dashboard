@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import merge from 'lodash/merge';
 
 import { alpha, useTheme } from '@mui/material/styles';
