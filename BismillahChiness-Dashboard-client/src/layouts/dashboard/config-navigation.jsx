@@ -19,7 +19,7 @@ const navConfig = [
   {
     title: 'Foods',
     path: '/food',
-    icon: icon('ic_blog'),
+    icon: icon('ic_cart'),
   },
   {
     title: 'login',
