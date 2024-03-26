@@ -16,11 +16,11 @@ export function fPercent(number) {
   return result(format, '.0');
 }
 
-// export function fShortenNumber(number) {
-//   const format = number ? numeral(number).format('0.00a') : '';
+export function fShortenNumber(number) {
+  const format = number ? numeral(number).format('0.00a') : '';
 
-//   return result(format, '.00');
-// }
+  return result(format, '.00');
+}
 
 export function fData(number) {
   const format = number ? numeral(number).format('0.0 b') : '';
