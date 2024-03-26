@@ -7,7 +7,7 @@ export default function FoodPage() {
   return (
     <>
       <Helmet>
-        <title> Blog | Bismillah-Chiness </title>
+        <title> Food | Bismillah-Chiness </title>
       </Helmet>
       <FoodView />
     </>
