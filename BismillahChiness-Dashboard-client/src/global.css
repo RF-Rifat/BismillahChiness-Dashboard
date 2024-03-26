@@ -1,2 +1,26 @@
 /* scrollbar */
 @import 'simplebar-react/dist/simplebar.min.css';
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 53, 88, 1) 0%,
+    rgba(9, 84, 129, 1) 100%
+  );
+}
+
+::-webkit-scrollbar-thumb {
+  background: #003558;
+  background: linear-gradient(100deg, #004169 10%, #07b8b6fe 88%, #095481 100%);
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #004169;
+  background: linear-gradient(100deg, #003556 10%, #02aba8fe 88%, #034772 100%);
+}
