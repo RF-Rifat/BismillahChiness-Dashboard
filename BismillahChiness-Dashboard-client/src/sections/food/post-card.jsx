@@ -12,8 +12,26 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
-export default function PostCard({ post, index }) {
-  const { imageSrc, title, description, category } = post;
+export default function PostCard({ post, index, refetch }) {
+  const { _id, imageSrc, title, description, category } = post;
+  const handleDelete = async (id, type) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/${type}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete resource');
+      }
+      refetch();
+      console.log('Resource deleted successfully');
+    } catch (error) {
+      console.error('Error deleting resource:', error.message);
+    }
+  };
 
   const latestPostLarge = index === 0;
 
@@ -60,7 +78,12 @@ export default function PostCard({ post, index }) {
         }}
       >
         <Stack direction="row" spacing={2}>
-          <Button variant="contained" size="small" startIcon={<DeleteIcon />}>
+          <Button
+            variant="contained"
+            size="small"
+            startIcon={<DeleteIcon />}
+            onClick={() => handleDelete(_id, 'food')}
+          >
             Delete
           </Button>
           <Button variant="contained" size="small" startIcon={<BorderColorIcon />}>
@@ -157,5 +180,6 @@ export default function PostCard({ post, index }) {
 
 PostCard.propTypes = {
   post: PropTypes.object.isRequired,
+  refetch: PropTypes.func.isRequired,
   index: PropTypes.number,
 };
