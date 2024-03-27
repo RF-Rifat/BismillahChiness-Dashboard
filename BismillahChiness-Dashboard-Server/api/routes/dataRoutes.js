@@ -55,9 +55,7 @@ router.get("/:type", async (req, res) => {
       default:
         result = "unrecognized path";
     }
-
     res.send(result);
-    console.log(result);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
@@ -90,6 +88,39 @@ router.post("/:type", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+// delete method
+router.delete("/:type/:id", async (req, res) => {
+  try {
+    const type = req.params.type.toLowerCase().trim();
+    const id = req.params.id;
+
+    let result;
+    switch (type) {
+      case "user":
+        result = await User.findByIdAndDelete(id);
+        break;
+      case "food":
+        result = await Food.findByIdAndDelete(id);
+        break;
+      case "testimonial":
+        result = await Testimonial.findByIdAndDelete(id);
+        break;
+      default:
+        return res.status(400).send("Invalid resource type");
+    }
+
+    if (!result) {
+      return res.status(404).send("Resource not found");
+    }
+
+    res.send("Resource deleted successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error.message);
+  }
+});
+
 
 // getting data by filtering id
 router.get("/food/:id", async (req, res) => {
