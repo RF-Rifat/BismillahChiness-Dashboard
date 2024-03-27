@@ -15,7 +15,6 @@ import PostCard from '../post-card';
 
 export default function FoodView() {
   const [foodData] = useGetData('/api/food');
-  console.log(foodData);
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>

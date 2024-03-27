@@ -12,12 +12,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <HelmetProvider>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
         <Suspense>
           <App />
         </Suspense>
-      </QueryClientProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </QueryClientProvider>
   </HelmetProvider>
 );
