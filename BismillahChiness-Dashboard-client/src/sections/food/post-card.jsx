@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unresolved */
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -13,16 +12,14 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
-import { fDate } from 'src/utils/format-time';
-
 export default function PostCard({ post, index }) {
-  const { cover: imgSrc, title, createdAt } = post;
+  const { imageSrc, title, description, category } = post;
 
   const latestPostLarge = index === 0;
 
   const latestPost = index === 1 || index === 2;
 
-  const renderTitle = (
+  const renderDescription = (
     <Link
       color="inherit"
       variant="subtitle2"
@@ -39,7 +36,7 @@ export default function PostCard({ post, index }) {
         }),
       }}
     >
-      {title}
+      {description}
     </Link>
   );
 
@@ -78,7 +75,7 @@ export default function PostCard({ post, index }) {
     <Box
       component="img"
       alt={title}
-      src={imgSrc}
+      src={imageSrc}
       sx={{
         top: 0,
         width: 1,
@@ -89,19 +86,22 @@ export default function PostCard({ post, index }) {
     />
   );
 
-  const renderDate = (
+  const renderTitle = (
     <Typography
       variant="caption"
       component="div"
       sx={{
         mb: 2,
-        color: 'text.disabled',
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '100%',
         ...((latestPostLarge || latestPost) && {
-          color: 'common.white',
+          color: 'white',
         }),
       }}
     >
-      {fDate(createdAt)}
+      {title}
+      <Chip label={category} color="primary" variant="outlined" />
     </Typography>
   );
 
@@ -120,7 +120,7 @@ export default function PostCard({ post, index }) {
                 width: '100%',
                 height: '100%',
                 position: 'absolute',
-                bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
+                bgcolor: (theme) => alpha(theme.palette.grey[800], 0.42),
               },
             }),
             ...(latestPostLarge && {
@@ -144,9 +144,9 @@ export default function PostCard({ post, index }) {
             }),
           }}
         >
-          {renderDate}
-
           {renderTitle}
+
+          {renderDescription}
 
           {renderInfo}
         </Box>

@@ -5,15 +5,17 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-import { posts } from 'src/_mock/blog';
+import useGetData from 'src/hooks/useGetData';
+
+// import { posts } from 'src/_mock/blog';
 
 import Iconify from 'src/components/iconify';
 
 import PostCard from '../post-card';
 
-
 export default function FoodView() {
-  console.log(posts)
+  const [foodData] = useGetData('/api/food');
+  console.log(foodData);
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
@@ -24,7 +26,7 @@ export default function FoodView() {
         </Button>
       </Stack>
       <Grid container spacing={3}>
-        {posts.map((post, index) => (
+        {foodData.map((post, index) => (
           <PostCard key={post.id} post={post} index={index} />
         ))}
       </Grid>
