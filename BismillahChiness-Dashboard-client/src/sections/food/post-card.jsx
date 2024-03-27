@@ -19,7 +19,7 @@ export default function PostCard({ post, index, refetch }) {
   const { _id, imageSrc, title, description, category } = post;
   const handleDelete = async (id, type) => {
     try {
-      const response = await fetch(`${BASE_URL}/${type}/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/food/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
