@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -41,7 +41,7 @@ export default function PostCard({ post, index, refetch }) {
   const latestPost = index === 1 || index === 2;
 
   const renderDescription = (
-    <Link
+    <Stack
       color="inherit"
       variant="subtitle2"
       underline="hover"
@@ -58,7 +58,7 @@ export default function PostCard({ post, index, refetch }) {
       }}
     >
       {description}
-    </Link>
+    </Stack>
   );
 
   const renderInfo = (
@@ -115,19 +115,20 @@ export default function PostCard({ post, index, refetch }) {
   const renderTitle = (
     <Typography
       variant="caption"
-      component="div"
+      component="h3"
       sx={{
         mb: 2,
         display: 'flex',
         justifyContent: 'space-between',
         width: '100%',
+        fontSize: '1.3rem',
         ...((latestPostLarge || latestPost) && {
           color: 'white',
         }),
       }}
     >
       {title}
-      <Chip label={category} color="primary" variant="outlined" />
+      <Chip label={category} color="primary" />
     </Typography>
   );
 
