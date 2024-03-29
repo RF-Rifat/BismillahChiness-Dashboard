@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function UpdateModal({ openModal, refetch, handleCloseModal }) {
+export default function UpdateModal({ id, openModal, refetch, handleCloseModal }) {
   const [foodName, setFoodName] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -45,23 +45,25 @@ export default function UpdateModal({ openModal, refetch, handleCloseModal }) {
         imageSrc,
         category,
       };
-      const response = await fetch(`${BASE_URL}/api/food`, {
-        method: 'POST',
+      console.log(newFoodData);
+      const response = await fetch(`${BASE_URL}/api/food/${id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(newFoodData),
       });
       if (!response.ok) {
-        throw new Error('Failed to add food. Please try again later.');
+        throw new Error('Failed to update food. Please try again later.');
       }
-      console.log('Food added successfully:', newFoodData);
+      console.log('Food updated successfully:', newFoodData);
       refetch();
       handleCloseModal();
     } catch (error) {
-      console.error('Error adding food:', error.message);
+      console.error('Error updating food:', error.message);
     }
   };
+
   return (
     <Modal open={openModal} onClose={handleCloseModal}>
       <Container>
