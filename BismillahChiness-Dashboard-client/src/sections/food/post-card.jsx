@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-// import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -15,9 +15,11 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 import { BASE_URL } from 'src/hooks/useGetData';
 
+import UpdateModal from './view/UpdateModal';
+
 export default function PostCard({ post, index, refetch }) {
   const { _id, imageSrc, title, description, category } = post;
-  const handleDelete = async (id, type) => {
+  const handleDelete = async (id) => {
     try {
       const response = await fetch(`${BASE_URL}/api/food/${id}`, {
         method: 'DELETE',
@@ -35,10 +37,17 @@ export default function PostCard({ post, index, refetch }) {
       console.error('Error deleting resource:', error.message);
     }
   };
-
+  const [openModal, setOpenModal] = useState(false);
   const latestPostLarge = index === 0;
 
   const latestPost = index === 1 || index === 2;
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   const renderDescription = (
     <Stack
@@ -89,9 +98,19 @@ export default function PostCard({ post, index, refetch }) {
           >
             Delete
           </Button>
-          <Button variant="contained" size="small" startIcon={<BorderColorIcon />}>
+          <Button
+            variant="contained"
+            size="small"
+            startIcon={<BorderColorIcon />}
+            onClick={handleOpenModal}
+          >
             Update
           </Button>
+          <UpdateModal
+            openModal={openModal}
+            refetch={refetch}
+            handleCloseModal={handleCloseModal}
+          />
         </Stack>
       </Stack>
     </Stack>
