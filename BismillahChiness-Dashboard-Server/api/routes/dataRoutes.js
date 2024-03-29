@@ -89,6 +89,43 @@ router.post("/:type", async (req, res) => {
   }
 });
 
+
+// put method
+router.put("/:type/:id", async (req, res) => {
+  try {
+    const type = req.params.type.toLowerCase().trim();
+    const id = req.params.id;
+
+    let result;
+    let updateData = req.body; 
+    switch (type) {
+      case "user":
+        result = await User.findByIdAndUpdate(id, updateData, { new: true });
+        break;
+      case "food":
+        result = await Food.findByIdAndUpdate(id, updateData, { new: true });
+        break;
+      case "testimonial":
+        result = await Testimonial.findByIdAndUpdate(id, updateData, {
+          new: true,
+        });
+        break;
+      default:
+        return res.status(400).send("Invalid resource type");
+    }
+
+    if (!result) {
+      return res.status(404).send("Resource not found");
+    }
+
+    res.send("Resource updated successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error.message);
+  }
+});
+
+
 // delete method
 router.delete("/:type/:id", async (req, res) => {
   try {
@@ -120,7 +157,6 @@ router.delete("/:type/:id", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
 
 // getting data by filtering id
 router.get("/food/:id", async (req, res) => {

@@ -3,7 +3,6 @@ require("dotenv").config();
 
 // Function to generate MongoDB connection URI
 const getConnectionString = () => {
-  console.log(process.env.DB_PASS);
   let connectionUrl;
   connectionUrl = process.env.MONGO_URI;
   connectionUrl = connectionUrl.replace("<password>", process.env.DB_PASS);
