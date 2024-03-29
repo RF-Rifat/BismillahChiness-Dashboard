@@ -53,7 +53,6 @@ export default function UpdateModal({ openModal, refetch, handleCloseModal, post
         imageSrc: newImageSrc,
         category: newCategory,
       };
-      console.log(newFoodData);
       const response = await fetch(`${BASE_URL}/api/food/${_id}`, {
         method: 'PUT',
         headers: {
