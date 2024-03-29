@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable perfectionist/sort-imports */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
@@ -10,43 +10,51 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function UpdateModal({ id, openModal, refetch, handleCloseModal }) {
-  const [foodName, setFoodName] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [imageSrc, setImageSrc] = useState('');
-  const [category, setCategory] = useState('');
-  const handleFoodNameChange = (event) => {
-    setFoodName(event.target.value);
-  };
+export default function UpdateModal({ openModal, refetch, handleCloseModal, post }) {
+  const { _id, imageSrc, title, description, category } = post;
+
+  // Initialize state variables with default values from post prop
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [newImageSrc, setNewImageSrc] = useState('');
+  const [newCategory, setNewCategory] = useState('');
+
+  // Set default values when the post prop changes
+  useEffect(() => {
+    if (post) {
+      setNewTitle(title);
+      setNewDescription(description);
+      setNewImageSrc(imageSrc);
+      setNewCategory(category);
+    }
+  }, [category, description, imageSrc, post, title]);
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    setNewTitle(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
+    setNewDescription(event.target.value);
   };
 
   const handleImgSrcChange = (event) => {
-    setImageSrc(event.target.value);
+    setNewImageSrc(event.target.value);
   };
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    setNewCategory(event.target.value);
   };
 
   const handleUpdateFood = async () => {
     try {
       const newFoodData = {
-        foodName,
-        title,
-        description,
-        imageSrc,
-        category,
+        title: newTitle,
+        description: newDescription,
+        imageSrc: newImageSrc,
+        category: newCategory,
       };
       console.log(newFoodData);
-      const response = await fetch(`${BASE_URL}/api/food/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/food/${_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -81,30 +89,30 @@ export default function UpdateModal({ id, openModal, refetch, handleCloseModal }
             width: 400,
           }}
         >
-          <Typography variant="h6">Add Food</Typography>
+          <Typography variant="h6">Update Food</Typography>
+
           <TextField
-            label="Food Name"
+            label="Title"
             variant="outlined"
-            value={foodName}
-            onChange={handleFoodNameChange}
+            value={newTitle}
+            onChange={handleTitleChange}
           />
-          <TextField label="Title" variant="outlined" value={title} onChange={handleTitleChange} />
           <TextField
             label="Description"
             variant="outlined"
-            value={description}
+            value={newDescription}
             onChange={handleDescriptionChange}
           />
           <TextField
             label="Image Source"
             variant="outlined"
-            value={imageSrc}
+            value={newImageSrc}
             onChange={handleImgSrcChange}
           />
           <TextField
             label="Category"
             variant="outlined"
-            value={category}
+            value={newCategory}
             onChange={handleCategoryChange}
           />
           <Button variant="contained" onClick={handleUpdateFood}>

@@ -18,7 +18,6 @@ import PostCard from '../post-card';
 export default function FoodView() {
   const [foodData, refetch] = useGetData('/api/food');
   const [openModal, setOpenModal] = useState(false);
-  const [foodName, setFoodName] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageSrc, setImageSrc] = useState('');
@@ -30,10 +29,6 @@ export default function FoodView() {
 
   const handleCloseModal = () => {
     setOpenModal(false);
-  };
-
-  const handleFoodNameChange = (event) => {
-    setFoodName(event.target.value);
   };
 
   const handleTitleChange = (event) => {
@@ -55,7 +50,6 @@ export default function FoodView() {
   const handleAddFood = async () => {
     try {
       const newFoodData = {
-        foodName,
         title,
         description,
         imageSrc,
@@ -114,12 +108,6 @@ export default function FoodView() {
             }}
           >
             <Typography variant="h6">Add Food</Typography>
-            <TextField
-              label="Food Name"
-              variant="outlined"
-              value={foodName}
-              onChange={handleFoodNameChange}
-            />
             <TextField
               label="Title"
               variant="outlined"

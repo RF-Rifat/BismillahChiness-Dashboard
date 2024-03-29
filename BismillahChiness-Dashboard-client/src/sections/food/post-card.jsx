@@ -108,6 +108,7 @@ export default function PostCard({ post, index, refetch }) {
           </Button>
           <UpdateModal
             id={_id}
+            post={post}
             openModal={openModal}
             refetch={refetch}
             handleCloseModal={handleCloseModal}
