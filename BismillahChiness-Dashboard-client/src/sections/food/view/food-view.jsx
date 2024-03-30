@@ -19,6 +19,7 @@ export default function FoodView() {
   const [foodData, refetch] = useGetData('/api/food');
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState('');
+  const [price, setPrice] = useState(Number);
   const [description, setDescription] = useState('');
   const [imageSrc, setImageSrc] = useState('');
   const [category, setCategory] = useState('');
@@ -33,6 +34,9 @@ export default function FoodView() {
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
+  };
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -50,7 +54,8 @@ export default function FoodView() {
   const handleAddFood = async () => {
     try {
       const newFoodData = {
-         title,
+        title,
+        price,
         description,
         imageSrc,
         category,
@@ -113,6 +118,12 @@ export default function FoodView() {
               variant="outlined"
               value={title}
               onChange={handleTitleChange}
+            />
+            <TextField
+              label="Title"
+              variant="outlined"
+              value={price}
+              onChange={handlePriceChange}
             />
             <TextField
               label="Description"
