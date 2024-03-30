@@ -50,7 +50,7 @@ export default function FoodView() {
   const handleAddFood = async () => {
     try {
       const newFoodData = {
-        title,
+         title,
         description,
         imageSrc,
         category,
