@@ -120,7 +120,7 @@ export default function FoodView() {
               onChange={handleTitleChange}
             />
             <TextField
-              label="Title"
+              label="Price"
               variant="outlined"
               value={price}
               onChange={handlePriceChange}

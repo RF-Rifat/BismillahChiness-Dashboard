@@ -11,10 +11,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function UpdateModal({ openModal, refetch, handleCloseModal, post }) {
-  const { _id, imageSrc, title, description, category } = post;
+  const { _id, imageSrc, price, title, description, category } = post;
 
   // Initialize state variables with default values from post prop
   const [newTitle, setNewTitle] = useState('');
+  const [newPrice, setNewPrice] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [newImageSrc, setNewImageSrc] = useState('');
   const [newCategory, setNewCategory] = useState('');
@@ -23,14 +24,18 @@ export default function UpdateModal({ openModal, refetch, handleCloseModal, post
   useEffect(() => {
     if (post) {
       setNewTitle(title);
+      setNewPrice(price);
       setNewDescription(description);
       setNewImageSrc(imageSrc);
       setNewCategory(category);
     }
-  }, [category, description, imageSrc, post, title]);
+  }, [category, description, imageSrc, post, price, title]);
 
   const handleTitleChange = (event) => {
     setNewTitle(event.target.value);
+  };
+  const handlePriceChange = (event) => {
+    setNewPrice(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -95,6 +100,12 @@ export default function UpdateModal({ openModal, refetch, handleCloseModal, post
             variant="outlined"
             value={newTitle}
             onChange={handleTitleChange}
+          />
+          <TextField
+            label="Title"
+            variant="outlined"
+            value={newPrice}
+            onChange={handlePriceChange}
           />
           <TextField
             label="Description"
