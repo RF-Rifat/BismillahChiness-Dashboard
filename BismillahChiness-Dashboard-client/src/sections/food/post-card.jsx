@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
+import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { alpha } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -17,8 +18,23 @@ import { BASE_URL } from 'src/hooks/useGetData';
 
 import UpdateModal from './view/UpdateModal';
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function PostCard({ post, index, refetch }) {
   const { _id, imageSrc, title, description, category } = post;
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`${BASE_URL}/api/food/${id}`, {
@@ -90,12 +106,7 @@ export default function PostCard({ post, index, refetch }) {
         }}
       >
         <Stack direction="row" spacing={2}>
-          <Button
-            variant="contained"
-            size="small"
-            startIcon={<DeleteIcon />}
-            onClick={() => handleDelete(_id, 'food')}
-          >
+          <Button variant="contained" size="small" startIcon={<DeleteIcon />} onClick={handleOpen}>
             Delete
           </Button>
           <Button
@@ -154,52 +165,85 @@ export default function PostCard({ post, index, refetch }) {
   );
 
   return (
-    <Grid xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
-      <Card>
-        <Box
-          sx={{
-            position: 'relative',
-            pt: 'calc(100% * 3 / 4)',
-            ...((latestPostLarge || latestPost) && {
-              pt: 'calc(100% * 4 / 3)',
-              '&:after': {
-                top: 0,
-                content: "''",
-                width: '100%',
-                height: '100%',
+    <>
+      <Grid xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
+        <Card>
+          <Box
+            sx={{
+              position: 'relative',
+              pt: 'calc(100% * 3 / 4)',
+              ...((latestPostLarge || latestPost) && {
+                pt: 'calc(100% * 4 / 3)',
+                '&:after': {
+                  top: 0,
+                  content: "''",
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute',
+                  bgcolor: (theme) => alpha(theme.palette.grey[800], 0.42),
+                },
+              }),
+              ...(latestPostLarge && {
+                pt: {
+                  xs: 'calc(100% * 4 / 3)',
+                  sm: 'calc(100% * 3 / 4.66)',
+                },
+              }),
+            }}
+          >
+            {renderCover}
+          </Box>
+
+          <Box
+            sx={{
+              p: (theme) => theme.spacing(4, 3, 3, 3),
+              ...((latestPostLarge || latestPost) && {
+                width: 1,
+                bottom: 0,
                 position: 'absolute',
-                bgcolor: (theme) => alpha(theme.palette.grey[800], 0.42),
-              },
-            }),
-            ...(latestPostLarge && {
-              pt: {
-                xs: 'calc(100% * 4 / 3)',
-                sm: 'calc(100% * 3 / 4.66)',
-              },
-            }),
-          }}
-        >
-          {renderCover}
+              }),
+            }}
+          >
+            {renderTitle}
+
+            {renderDescription}
+
+            {renderInfo}
+          </Box>
+        </Card>
+      </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Confirm Delete
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Are you sure you want to delete this item?
+          </Typography>
+          <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+            <Button
+              variant="contained"
+              size="small"
+              startIcon={<DeleteIcon />}
+              onClick={() => {
+                handleDelete(_id, 'food');
+                handleClose();
+              }}
+            >
+              Yes, Delete
+            </Button>
+            <Button variant="contained" size="small" onClick={handleClose}>
+              Cancel
+            </Button>
+          </Stack>
         </Box>
-
-        <Box
-          sx={{
-            p: (theme) => theme.spacing(4, 3, 3, 3),
-            ...((latestPostLarge || latestPost) && {
-              width: 1,
-              bottom: 0,
-              position: 'absolute',
-            }),
-          }}
-        >
-          {renderTitle}
-
-          {renderDescription}
-
-          {renderInfo}
-        </Box>
-      </Card>
-    </Grid>
+      </Modal>
+    </>
   );
 }
 
