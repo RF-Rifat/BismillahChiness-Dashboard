@@ -59,6 +59,7 @@ export default function FoodView() {
         description,
         imageSrc,
         category,
+        available: true,
       };
       const response = await fetch(`${BASE_URL}/api/food`, {
         method: 'POST',

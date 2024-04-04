@@ -31,7 +31,7 @@ const style = {
 };
 
 export default function PostCard({ post, index, refetch }) {
-  const { _id, imageSrc, title, description, category } = post;
+  const { _id, imageSrc, title, description, category, price } = post;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -74,15 +74,17 @@ export default function PostCard({ post, index, refetch }) {
         height: 44,
         overflow: 'hidden',
         WebkitLineClamp: 2,
-        display: '-webkit-box',
-        WebkitBoxOrient: 'vertical',
+        display: 'grid',
+        gridTemplateColumns: '50% 50%',
+        justifyContent: 'space-between',
         ...(latestPostLarge && { typography: 'h5', height: 60 }),
         ...((latestPostLarge || latestPost) && {
           color: 'common.white',
         }),
       }}
     >
-      {description}
+      <div>{description}</div>
+      <div style={{ textAlign: 'end' }}>{category}</div>
     </Stack>
   );
 
@@ -160,7 +162,7 @@ export default function PostCard({ post, index, refetch }) {
       }}
     >
       {title}
-      <Chip label={category} color="primary" />
+      <Chip label={`${price} Tk`} color="primary" />
     </Typography>
   );
 

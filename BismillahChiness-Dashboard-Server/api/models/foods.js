@@ -22,6 +22,10 @@ const foodSchema = new Schema({
     type: String,
     required: true,
   },
+  available: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const Food = mongoose.model("Food", foodSchema);
