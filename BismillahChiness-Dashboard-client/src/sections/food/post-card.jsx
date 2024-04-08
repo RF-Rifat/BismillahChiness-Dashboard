@@ -155,7 +155,7 @@ export default function PostCard({ post, index, refetch }) {
         display: 'flex',
         justifyContent: 'space-between',
         width: '100%',
-        fontSize: '1.3rem',
+        fontSize: '1rem',
         ...((latestPostLarge || latestPost) && {
           color: 'white',
         }),
@@ -168,7 +168,7 @@ export default function PostCard({ post, index, refetch }) {
 
   return (
     <>
-      <Grid xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
+      <Grid xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 8 : 4}>
         <Card>
           <Box
             sx={{

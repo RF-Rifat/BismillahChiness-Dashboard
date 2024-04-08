@@ -17,6 +17,8 @@ import PostCard from '../post-card';
 
 export default function FoodView() {
   const [foodData, refetch] = useGetData('/api/food');
+  const [categories] = useGetData('/api/category');
+  console.log(categories);
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(Number);
