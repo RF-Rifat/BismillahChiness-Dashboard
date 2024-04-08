@@ -4,6 +4,7 @@ const User = require("../models/User");
 const Testimonial = require("../models/Testimonial");
 const Transaction = require("../models/Transaction");
 const Food = require("../models/foods");
+const Category = require("../models/category");
 
 router.post("/", async (req, res) => {
   try {
@@ -40,6 +41,12 @@ router.get("/:type", async (req, res) => {
           .skip(page * size)
           .limit(size);
         break;
+      case "category":
+        result = await Category.find()
+          .sort({ _id: -1 })
+          .skip(page * size)
+          .limit(size);
+        break;
       case "food":
         result = await Food.find()
           .sort({ _id: -1 })
@@ -68,6 +75,9 @@ router.post("/:type", async (req, res) => {
     const data = req.body;
     let result;
     switch (type) {
+      case "category":
+        result = await Category.create(data);
+        break;
       case "user":
         result = await User.create(data);
         break;
@@ -89,7 +99,6 @@ router.post("/:type", async (req, res) => {
   }
 });
 
-
 // put method
 router.put("/:type/:id", async (req, res) => {
   try {
@@ -97,7 +106,7 @@ router.put("/:type/:id", async (req, res) => {
     const id = req.params.id;
 
     let result;
-    let updateData = req.body; 
+    let updateData = req.body;
     switch (type) {
       case "user":
         result = await User.findByIdAndUpdate(id, updateData, { new: true });
@@ -125,7 +134,6 @@ router.put("/:type/:id", async (req, res) => {
   }
 });
 
-
 // delete method
 router.delete("/:type/:id", async (req, res) => {
   try {
@@ -136,6 +144,9 @@ router.delete("/:type/:id", async (req, res) => {
     switch (type) {
       case "user":
         result = await User.findByIdAndDelete(id);
+        break;
+      case "category":
+        result = await Category.findByIdAndDelete(id);
         break;
       case "food":
         result = await Food.findByIdAndDelete(id);
