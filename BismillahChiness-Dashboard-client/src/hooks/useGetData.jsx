@@ -3,7 +3,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const useFetchData = (url) => {
+export const BASE_URL = 'http://localhost:5000';
+// export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
+
+const useFetchData = (endpoint) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +15,7 @@ const useFetchData = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(BASE_URL + endpoint);
         setData(response.data);
       } catch (error) {
         setError(error);
@@ -22,7 +25,7 @@ const useFetchData = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, [endpoint]);
   return { data, loading, error };
 };
 

@@ -9,16 +9,15 @@ import Grid from '@mui/material/Unstable_Grid2';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import useGetOrderData, { BASE_URL } from 'src/hooks/useGetOrderData';
+import useGetFoodData, { BASE_URL } from 'src/hooks/useGetFoodData';
 
 import Iconify from 'src/components/iconify';
 
 import PostCard from '../post-card';
+import FoodCategory from './food-category';
 
 export default function FoodView() {
-  const [foodData, refetch] = useGetOrderData('/api/food');
-  const [categories] = useGetOrderData('/api/user');
-  console.log(categories, foodData);
+  const [foodData, refetch] = useGetFoodData('/api/food');
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(Number);
@@ -94,6 +93,7 @@ export default function FoodView() {
           Add Food
         </Button>
       </Stack>
+      <FoodCategory />
       <Grid container spacing={3}>
         {foodData.map((post, index) => (
           <PostCard key={post._id} post={post} index={index} refetch={refetch} />

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export const BASE_URL = 'http://localhost:5000';
 // export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
-const useGetOrderData = (endpoint) => {
+const useGetFoodData = (endpoint) => {
   const {
     isPending,
     data = [],
@@ -14,4 +14,4 @@ const useGetOrderData = (endpoint) => {
   return [data, refetch, isPending];
 };
 
-export default useGetOrderData;
+export default useGetFoodData;
