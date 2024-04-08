@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
-import { BASE_URL } from 'src/hooks/useGetData';
+import { BASE_URL } from 'src/hooks/useGetOrderData';
 
 import UpdateModal from './view/UpdateModal';
 

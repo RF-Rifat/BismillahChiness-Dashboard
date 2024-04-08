@@ -9,16 +9,16 @@ import Grid from '@mui/material/Unstable_Grid2';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import useGetData, { BASE_URL } from 'src/hooks/useGetData';
+import useGetOrderData, { BASE_URL } from 'src/hooks/useGetOrderData';
 
 import Iconify from 'src/components/iconify';
 
 import PostCard from '../post-card';
 
 export default function FoodView() {
-  const [foodData, refetch] = useGetData('/api/food');
-  const [categories] = useGetData('/api/category');
-  console.log(categories);
+  const [foodData, refetch] = useGetOrderData('/api/food');
+  const [categories] = useGetOrderData('/api/user');
+  console.log(categories, foodData);
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(Number);

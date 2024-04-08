@@ -1,17 +1,29 @@
-import { useQuery } from '@tanstack/react-query';
+/* eslint-disable no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-// export const BASE_URL = 'http://localhost:5000';
-export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
-const useGetData = (endpoint) => {
-  const {
-    isPending,
-    data = [],
-    refetch,
-  } = useQuery({
-    queryKey: ['data'],
-    queryFn: () => fetch(BASE_URL + endpoint).then((res) => res.json()),
-  });
-  return [data, refetch, isPending];
+const useFetchData = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(url);
+        setData(response.data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+  return { data, loading, error };
 };
 
-export default useGetData;
+export default useFetchData;
