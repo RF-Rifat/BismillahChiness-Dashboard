@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
-import { BASE_URL } from 'src/hooks/useGetData';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { BASE_URL } from 'src/hooks/useGetFoodData';
 
 export default function UpdateModal({ openModal, refetch, handleCloseModal, post }) {
   const { _id, imageSrc, price, title, description, category } = post;
