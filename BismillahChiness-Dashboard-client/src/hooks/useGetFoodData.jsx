@@ -8,7 +8,7 @@ const useGetFoodData = (endpoint) => {
     data = [],
     refetch,
   } = useQuery({
-    queryKey: ['data'],
+    queryKey: [`data-${endpoint}`],
     queryFn: () => fetch(BASE_URL + endpoint).then((res) => res.json()),
   });
   return [data, refetch, isPending];
