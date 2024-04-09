@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
-export const BASE_URL = 'http://localhost:5000';
-// export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
+// export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
 const useGetFoodData = (endpoint) => {
   const {
     isPending,
