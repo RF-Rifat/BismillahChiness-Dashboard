@@ -43,7 +43,6 @@ router.get("/:type", async (req, res) => {
         break;
       case "category":
         result = await Category.find()
-          .sort({ _id: -1 })
           .skip(page * size)
           .limit(size);
         break;
