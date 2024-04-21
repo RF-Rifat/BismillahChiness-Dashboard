@@ -5,12 +5,12 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 
-// import useGetFoodData from 'src/hooks/useGetFoodData';
+import useGetFoodData from 'src/hooks/useGetFoodData';
 
 export default function FoodCategory() {
   const [value, setValue] = React.useState(0);
-  //   const [foodData] = useGetFoodData('/api/category');
-  //   console.log(foodData);
+  const [foodData] = useGetFoodData('/api/category');
+  console.log(foodData);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

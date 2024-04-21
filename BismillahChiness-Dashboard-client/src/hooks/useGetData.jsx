@@ -3,8 +3,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export const BASE_URL = 'http://localhost:5000';
-// export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
+// export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'https://bismillah-chiness-dashboard-server.vercel.app';
 
 const useFetchData = (endpoint) => {
   const [data, setData] = useState(null);
