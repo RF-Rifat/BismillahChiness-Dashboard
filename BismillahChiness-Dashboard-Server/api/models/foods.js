@@ -10,21 +10,12 @@ const foodSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-    required: true,
-  },
   imageSrc: {
     type: String,
     required: true,
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
-    required: true,
-  },
-  available: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 });
