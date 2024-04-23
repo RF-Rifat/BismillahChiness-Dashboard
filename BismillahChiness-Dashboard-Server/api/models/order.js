@@ -53,8 +53,20 @@ const cartItemSchema = new mongoose.Schema({
 
 const orderSchema = new mongoose.Schema(
   {
-    user: userSchema,
-    cartData: [cartItemSchema],
+    user: {
+      type: userSchema,
+      required: true,
+    },
+    cartData: {
+      type: [cartItemSchema],
+      required: true,
+      validate: {
+        validator: function (value) {
+          return value.length > 0;
+        },
+        message: "Cart data cannot be empty.",
+      },w
+    },
     totalPrice: {
       type: Number,
       required: true,
