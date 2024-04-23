@@ -65,7 +65,7 @@ const orderSchema = new mongoose.Schema(
           return value.length > 0;
         },
         message: "Cart data cannot be empty.",
-      },w
+      },
     },
     totalPrice: {
       type: Number,
