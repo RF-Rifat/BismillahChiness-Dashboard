@@ -51,14 +51,22 @@ const cartItemSchema = new mongoose.Schema({
   },
 });
 
-const orderSchema = new mongoose.Schema({
-  user: userSchema,
-  cartData: [cartItemSchema],
-  totalPrice: {
-    type: Number,
-    required: true,
+const orderSchema = new mongoose.Schema(
+  {
+    user: userSchema,
+    cartData: [cartItemSchema],
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["pending", "confirmed"],
+      default: "pending",
+    },
   },
-});
+  { timestamps: true }
+);
 
 const Order = mongoose.model("Order", orderSchema);
 

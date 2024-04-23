@@ -160,6 +160,9 @@ router.delete("/:type/:id", async (req, res) => {
       case "food":
         result = await Food.findByIdAndDelete(id);
         break;
+      case "order":
+        result = await Order.findByIdAndDelete(id);
+        break;
       case "testimonial":
         result = await Testimonial.findByIdAndDelete(id);
         break;
