@@ -123,6 +123,9 @@ router.put("/:type/:id", async (req, res) => {
       case "food":
         result = await Food.findByIdAndUpdate(id, updateData, { new: true });
         break;
+      case "order":
+        result = await Order.findByIdAndUpdate(id, updateData, { new: true });
+        break;
       case "testimonial":
         result = await Testimonial.findByIdAndUpdate(id, updateData, {
           new: true,
