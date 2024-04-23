@@ -53,6 +53,12 @@ router.get("/:type", async (req, res) => {
           .skip(page * size)
           .limit(size);
         break;
+      case "order":
+        result = await Order.find()
+          .sort({ _id: -1 })
+          .skip(page * size)
+          .limit(size);
+        break;
       case "testimonial":
         result = await Testimonial.find()
           .sort({ _id: -1 })
