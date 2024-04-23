@@ -5,6 +5,7 @@ const Testimonial = require("../models/Testimonial");
 const Transaction = require("../models/Transaction");
 const Food = require("../models/foods");
 const Category = require("../models/category");
+const Order = require("../models/order");
 
 router.post("/", async (req, res) => {
   try {
@@ -82,6 +83,9 @@ router.post("/:type", async (req, res) => {
         break;
       case "testimonial":
         result = await Testimonial.create(data);
+        break;
+      case "order":
+        result = await Order.create(data);
         break;
       case "transaction":
         result = await Transaction.create(data);
