@@ -1,57 +1,31 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-
-const topProductSchema = new mongoose.Schema({
-  _id: {
+const carouselSchema = new Schema({
+  imgSrc: {
     type: String,
     required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  imageSrc: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  quantity: {
-    type: Number,
-    required: true,
-    min: 1,
   },
 });
-// Define testimonialSchema before using it
-const homeDataSchema = new Schema(
-  {
-    marquee: {
-      type: String,
-      required: true,
-    },
-    carousel: {
-      type: Array,
-      required: true,
-    },
-    imageSrc: {
-      type: String,
-    },
-    topProduct: {
-      type: [topProductSchema],
-      required: true,
+
+
+const homeDataSchema = new Schema({
+  marquee: {
+    type: String,
+    required: true,
+  },
+  carousel: {
+    type: [carouselSchema],
+    required: true,
+    validate: {
+      validator: function (value) {
+        return value.length > 0;
+      },
+      message: "Home data cannot be empty.",
     },
   },
-  { timestamps: true }
-);
+});
 
-const Testimonial = mongoose.model("HomeData", homeDataSchema);
+const HomeData = mongoose.model("HomeData", homeDataSchema);
 
-// Export the model
-module.exports = Testimonial;
+module.exports = HomeData;

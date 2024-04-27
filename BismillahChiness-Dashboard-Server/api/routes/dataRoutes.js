@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-const Testimonial = require("../models/HomeData");
-const Transaction = require("../models/Transaction");
 const Food = require("../models/foods");
 const Category = require("../models/category");
 const Order = require("../models/order");
+const HomeData = require("../models/HomeData");
 
 router.post("/", async (req, res) => {
   try {
@@ -35,6 +34,7 @@ router.get("/:type", async (req, res) => {
     const type = req.params.type.toLowerCase().trim();
 
     let result;
+    console.log(page, type);
     switch (type) {
       case "user":
         result = await User.find()
@@ -59,8 +59,8 @@ router.get("/:type", async (req, res) => {
           .skip(page * size)
           .limit(size);
         break;
-      case "testimonial":
-        result = await Testimonial.find()
+      case "home-data":
+        result = await HomeData.find()
           .sort({ _id: -1 })
           .skip(page * size)
           .limit(size);
@@ -87,14 +87,11 @@ router.post("/:type", async (req, res) => {
       case "user":
         result = await User.create(data);
         break;
-      case "testimonial":
-        result = await Testimonial.create(data);
+      case "home-data":
+        result = await HomeData.create(data);
         break;
       case "order":
         result = await Order.create(data);
-        break;
-      case "transaction":
-        result = await Transaction.create(data);
         break;
       case "food":
         result = await Food.create(data);
@@ -126,8 +123,8 @@ router.put("/:type/:id", async (req, res) => {
       case "order":
         result = await Order.findByIdAndUpdate(id, updateData, { new: true });
         break;
-      case "testimonial":
-        result = await Testimonial.findByIdAndUpdate(id, updateData, {
+      case "home-data":
+        result = await HomeData.findByIdAndUpdate(id, updateData, {
           new: true,
         });
         break;
@@ -166,8 +163,8 @@ router.delete("/:type/:id", async (req, res) => {
       case "order":
         result = await Order.findByIdAndDelete(id);
         break;
-      case "testimonial":
-        result = await Testimonial.findByIdAndDelete(id);
+      case "home-data":
+        result = await HomeData.findByIdAndDelete(id);
         break;
       default:
         return res.status(400).send("Invalid resource type");
