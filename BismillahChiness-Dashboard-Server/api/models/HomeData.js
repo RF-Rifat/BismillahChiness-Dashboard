@@ -21,7 +21,6 @@ const homeDataSchema = new Schema({
     },
   ],
 });
-
 const HomeData = mongoose.model("HomeData", homeDataSchema);
 
 module.exports = HomeData;

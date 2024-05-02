@@ -5,6 +5,7 @@ const Food = require("../models/foods");
 const Category = require("../models/category");
 const Order = require("../models/order");
 const HomeData = require("../models/HomeData");
+const Carousel = require("../models/carousel");
 
 router.post("/", async (req, res) => {
   try {
@@ -65,6 +66,12 @@ router.get("/:type", async (req, res) => {
           .skip(page * size)
           .limit(size);
         break;
+      case "carousel":
+        result = await Carousel.find()
+          .sort({ _id: -1 })
+          .skip(page * size)
+          .limit(size);
+        break;
       default:
         result = "unrecognized path";
     }
@@ -89,6 +96,9 @@ router.post("/:type", async (req, res) => {
         break;
       case "home-data":
         result = await HomeData.create(data);
+        break;
+      case "carousel":
+        result = await Carousel.create(data);
         break;
       case "order":
         result = await Order.create(data);
@@ -122,6 +132,11 @@ router.put("/:type/:id", async (req, res) => {
         break;
       case "order":
         result = await Order.findByIdAndUpdate(id, updateData, { new: true });
+        break;
+      case "carousel":
+        result = await Carousel.findByIdAndUpdate(id, updateData, {
+          new: true,
+        });
         break;
       case "home-data":
         result = await HomeData.findByIdAndUpdate(id, updateData, {
